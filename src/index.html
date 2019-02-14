@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/rem.js"></script>
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">无连接</header>
+        <main class="main">
+            <nav class="nav">
+                <dl>
+                    <dt data-num = '0'><i class="icon iconfont">&#xe667;</i></dt>
+                    <dd>电源</dd>
+                </dl>
+
+                <dl>
+                    <dt data-num = '1'><i class="icon iconfont">&#xe653;</i></dt>
+                    <dd>首页</dd>
+                </dl>
+
+                <dl>
+                    <dt data-num = '2'><i class="icon iconfont">&#xe657;</i></dt>
+                    <dd>菜单</dd>
+                </dl>
+
+                <dl>
+                    <dt data-num = '3'> <i class="icon iconfont">&#xe65f;</i></dt>
+                    <dd>截屏</dd>
+                </dl>
+            </nav>
+
+            <div class="content">
+                
+            </div>
+        </main>
+        <footer class="footer"></footer>
+    </div>
+
+    <script>
+        
+        var nav = document.querySelector('.nav'),
+            content = document.querySelector('.content'),
+            dt = document.querySelectorAll('dt'),
+            arr = ['这是电源', '这是首页', '这是菜单', '这是截屏'];
+
+        nav.onclick = function(e){
+            if(e.target.tagName == 'DT'){
+                for (let index = 0; index < dt.length; index++) {
+                    const element = dt[index];
+                    element.classList.remove('active')
+                }
+                var num = e.target.getAttribute('data-num');
+                content.innerHTML = arr[num];
+                e.target.classList.add('active');
+            }
+        }
+    
+    </script>
+</body>
+</html>
